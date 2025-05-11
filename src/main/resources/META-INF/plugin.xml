@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>eu.technest.geminichatplugin</id> <!-- MUST BE UNIQUE -->
+    <name>Gemini AI Chat</name>
+    <version>0.1.0</version>
+    <vendor email="your.email@example.com" url="http://www.yourcompany.com">Your Company</vendor>
+
+    <description>
+    A simple IntelliJ IDEA plugin to chat with Google's Gemini AI.
+    Provides a tool window for chat and a settings dialog for API key management.
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Service for storing API Key -->
+        <applicationService
+                serviceImplementation="eu.technest.geminichatplugin.settings.GeminiSettingsService"/>
+
+        <!-- Tool Window Factory -->
+        <toolWindow factoryClass="eu.technest.geminichatplugin.toolwindow.GeminiToolWindowFactory"
+                    id="Gemini AI Chat"
+                    anchor="right"
+                    icon="/icons/gemini.svg"/> <!-- Create this icon -->
+    </extensions>
+
+    <actions>
+        <!-- Action for the Settings button in the Tool Window (we'll add it programmatically) -->
+        <!-- If you wanted a global settings entry, you'd add it here e.g., in Tools menu -->
+    </actions>
+
+</idea-plugin>
